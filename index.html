@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+        background-color: white;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background-color: white;
+        padding: 20px;
+      }
+
+      form {
+        width: 400px;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #ffffff;
+        box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.15);
+      }
+
+      .form-item,
+      .button-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0;
+      }
+
+      .button-container {
+        margin-top: 16px;
+        margin-bottom: -3px;
+      }
+
+      .divider {
+        border: none;
+        height: 1px;
+        background-color: #ccc;
+        margin: 10px 0;
+      }
+
+      .page-checkboxes {
+        height: 180px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .page-checkboxes::-webkit-scrollbar {
+        width: 0;
+      }
+
+      .page-checkboxes {
+        scrollbar-width: none;
+      }
+
+      label {
+        margin-right: 10px;
+      }
+
+      input[type="checkbox"] {
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+        vertical-align: middle;
+        position: relative;
+      }
+
+      input[type="checkbox"]:hover::before {
+        content: "\2713";
+        display: inline-block;
+        font-size: 16px;
+        color: grey;
+        position: absolute;
+        left: 3px;
+        top: -2px;
+      }
+      
+      input[type="checkbox"]:checked::before {
+        content: "\2713";
+        display: inline-block;
+        font-size: 16px;
+        color: white;
+        position: absolute;
+        left: 3px;
+        top: -2px;
+      }
+
+      input[type="checkbox"]:checked {
+        background-color: #5087f8;
+        border-color: #4caf50;
+      }
+
+      button {
+        width: 100%;
+        height: 48px;
+        background-color: #ffce22;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 15px;
+        color: black;
+      }
+
+      button:hover {
+        background-color: #ffd84d;
+      }
+
+      @media (max-width: 600px) {
+        .form-item {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <div class="form-item">
+          <label for="allPages">All pages</label>
+          <input
+            type="checkbox"
+            id="allPages"
+            name="allPages"
+            onclick="selectAllPages(this)"
+          />
+        </div>
+        <hr class="divider" />
+        <div class="page-checkboxes">
+          <div class="form-item">
+            <label for="page1">Page 1</label
+            ><input type="checkbox" id="page1" name="page1" />
+          </div>
+          <div class="form-item">
+            <label for="page2">Page 2</label
+            ><input type="checkbox" id="page2" name="page2" />
+          </div>
+          <div class="form-item">
+            <label for="page3">Page 3</label
+            ><input type="checkbox" id="page3" name="page3" />
+          </div>
+          <div class="form-item">
+            <label for="page4">Page 4</label
+            ><input type="checkbox" id="page4" name="page4" />
+          </div>
+          <div class="form-item">
+            <label for="page5">Page 5</label
+            ><input type="checkbox" id="page5" name="page5" />
+          </div>
+          <div class="form-item">
+            <label for="page6">Page 6</label
+            ><input type="checkbox" id="page6" name="page6" />
+          </div>
+        </div>
+        <hr class="divider" />
+        <div class="button-container">
+          <button type="submit">Done</button>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script>
+    function selectAllPages(checkbox) {
+      var pages = document.querySelectorAll(
+        '.page-checkboxes input[type="checkbox"]'
+      );
+      pages.forEach(function (page) {
+        page.checked = checkbox.checked;
+      });
+    }
+  </script>
+</html>
